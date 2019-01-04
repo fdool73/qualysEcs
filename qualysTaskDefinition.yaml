@@ -23,7 +23,7 @@ Resources:
               SourceVolume: "proxy-cert-path"
               ContainerPath: "/etc/qualys/qpa/cert/custom-ca.crt"
 
-          Image: "137453691370.dkr.ecr.us-east-1.amazonaws.com/qualys-container-sensor:latest"
+          Image: "sensor:latest"
           Cpu: "10"
           Memory: "512"
           Command:
@@ -31,9 +31,9 @@ Resources:
           Essential: "true"
           Environment:
             - Name: ACTIVATIONID
-              Value: 4ff01e23-981a-4dab-9b44-74ea437ee5bd
+              Value: value
             - Name: CUSTOMERID
-              Value: 9c0e25dc-ae08-5af6-e040-10ac13043f6a
+              Value: value
             - Name: qualys_https_proxy
               Value: proxy.qualys.com:3128
       Volumes:
