@@ -13,7 +13,7 @@ Parameters:
   EcsAmiId:
     Type: String
     Description: Specifies the AMI ID for your container instances.
-    Default: 'ami-045f1b3f87ed83659'
+    Default: 'string'
   EcsInstanceType:
     Type: CommaDelimitedList
     Description: >
