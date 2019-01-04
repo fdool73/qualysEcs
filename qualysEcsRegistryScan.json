@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "qualys-container-registry-sensor",
-            "image": "137453691370.dkr.ecr.us-east-1.amazonaws.com/qualys-container-sensor:latest",
+            "image": "sensor:latest",
             "cpu": 10,
             "memory": 512,
             "essential": true,
@@ -14,11 +14,11 @@
             "environment": [
                 {
                     "name": "ACTIVATIONID",
-                    "value": "4ff01e23-981a-4dab-9b44-74ea437ee5bd"
+                    "value": "value"
                 },
                 {
                     "name": "CUSTOMERID",
-                    "value": "9c0e25dc-ae08-5af6-e040-10ac13043f6a"
+                    "value": "value"
                 }
             ],
             "mountPoints": [
