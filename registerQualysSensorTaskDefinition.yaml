@@ -4,7 +4,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         -
-          Image: 137453691370.dkr.ecr.us-east-1.amazonaws.com/qualys-container-sensor:latest
+          Image: sensor:latest
           Memory: 512
           Name: qualys-container-sensor
           Cpu: 10
