@@ -1,6 +1,6 @@
 Launch Qualys Container Sensor automation
 
-Pull sensor image from VM ECR to user ECR
+Pull sensor image from ECR to user ECR
 - Permissions: AWS accounts under AWS Organizations
 
 Deploy sensor task definition
