@@ -1,5 +1,4 @@
 Launch Qualys Container Sensor automation
-Maintainer: Frank Dooling fdooling@cisco.com
 
 Pull sensor image from VM ECR to user ECR
 - Permissions: AWS accounts under AWS Organizations
@@ -15,9 +14,6 @@ Deploy ECS Cluster
     - Lambda function
       - createQualysCluster.py (boto3)
         - creates ECS Cluster
-
-installsensor.sh
-  - Shell script from installer tar that deploys sensor
 
 CloudFormation
   - qualysEcsCluster.yaml
