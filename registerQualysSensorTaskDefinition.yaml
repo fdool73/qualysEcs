@@ -1,0 +1,13 @@
+Resources:
+  qualysScanner:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      ContainerDefinitions:
+        -
+          Image: 137453691370.dkr.ecr.us-east-1.amazonaws.com/qualys-container-sensor:latest
+          Memory: 512
+          Name: qualys-container-sensor
+          Cpu: 10
+          Command:
+            - "--ecs=mode"
+          Essential: True

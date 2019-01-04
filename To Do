@@ -1,0 +1,21 @@
+TO DO:
+
+- ECS logging
+- CF templates for: cluster, Service
+- Lambda: cluster, Service
+- Create Qualys registry Sensor
+- Qualys CICD
+- EFS for qualys ECS
+
+
+________________________________________________________________________________
+
+Playbook: https://cspo-wiki.cisco.com/pages/viewpage.action?title=Self-Scan+Auditing+Process&spaceKey=VMP
+
+CSB (cloud security buddy) - create account role for users
+
+CF template to deploy sensor (into existing user cluster)
+
+AWS orgs -> pull from our ECR? Create S3 bucket with lambda for pull?  Talk to Brendan
+
+Test marketplace AMI for Qualys Container / Layered Insight

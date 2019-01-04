@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  qualysScanner:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      RequiresCompatibilities:
+        - "EC2"
+      NetworkMode: "awsvpc"
+      ContainerDefinitions:
+        -
+          Name: "qualysContainerSensorCloudFormation"
+          MountPoints:
+            -
+              SourceVolume: "persistent_volume"
+              ContainerPath: "/usr/local/qualys/qpa/data"
+            -
+              SourceVolume: "var_run"
+              ContainerPath: "/var/run"
+            -
+              SourceVolume: "etc_qualys"
+              ContainerPath: "/usr/local/qualys/qpa/data/conf/agent-data"
+            -
+              SourceVolume: "proxy-cert-path"
+              ContainerPath: "/etc/qualys/qpa/cert/custom-ca.crt"
+
+          Image: "137453691370.dkr.ecr.us-east-1.amazonaws.com/qualys-container-sensor:latest"
+          Cpu: "10"
+          Memory: "512"
+          Command:
+            - "--ecs-mode"
+          Essential: "true"
+          Environment:
+            - Name: ACTIVATIONID
+              Value: 4ff01e23-981a-4dab-9b44-74ea437ee5bd
+            - Name: CUSTOMERID
+              Value: 9c0e25dc-ae08-5af6-e040-10ac13043f6a
+            - Name: qualys_https_proxy
+              Value: proxy.qualys.com:3128
+      Volumes:
+        -
+          Host:
+            SourcePath: "/usr/local/qualys/sensor/data"
+          Name: "persistent_volume"
+        -
+          Host:
+            SourcePath: "/var/run"
+          Name: "var_run"
+        -
+          Host:
+            SourcePath: "/etc/qualys"
+          Name: "etc_qualys"
+        -
+          Host:
+            SourcePath: "/root/cert/proxy-certificate.crt"
+          Name: "proxy-cert-path"

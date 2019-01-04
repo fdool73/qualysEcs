@@ -1,0 +1,63 @@
+{
+    "family": "qualys-container-registry-sensor",
+    "containerDefinitions": [
+        {
+            "name": "qualys-container-registry-sensor",
+            "image": "137453691370.dkr.ecr.us-east-1.amazonaws.com/qualys-container-sensor:latest",
+            "cpu": 10,
+            "memory": 512,
+            "essential": true,
+            "command": [
+                "--ecs-mode",
+                "--registry-sensor"
+            ],
+            "environment": [
+                {
+                    "name": "ACTIVATIONID",
+                    "value": "4ff01e23-981a-4dab-9b44-74ea437ee5bd"
+                },
+                {
+                    "name": "CUSTOMERID",
+                    "value": "9c0e25dc-ae08-5af6-e040-10ac13043f6a"
+                }
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "persistent_volume",
+                    "containerPath": "/usr/local/qualys/qpa/data"
+                },
+                {
+                    "sourceVolume": "var_run",
+                    "containerPath": "/var/run"
+                },
+                {
+                    "sourceVolume": "etc_qualys",
+                    "containerPath": "/usr/local/qualys/qpa/data/conf/agent-data"
+                }
+            ]
+        }
+    ],
+    "volumes": [
+        {
+            "name": "persistent_volume",
+            "host": {
+                "sourcePath": "/usr/local/qualys/sensor/data"
+            }
+        },
+        {
+            "name": "var_run",
+            "host": {
+                "sourcePath": "/var/run"
+            }
+        },
+        {
+            "name": "etc_qualys",
+            "host": {
+                "sourcePath": "/etc/qualys"
+            }
+        }
+    ],
+    "placementConstraints": [],
+    "memory": null,
+    "cpu": null
+}
